@@ -5,6 +5,7 @@ import { Layout } from '../components/Layout';
 import { Button } from '../components/Button';
 import { Character } from '../components/Character';
 import { useSurvey } from '../store';
+import { scrollToTopInstant } from '../utils/scroll';
 
 export const Done: React.FC = () => {
   const navigate = useNavigate();
@@ -12,6 +13,7 @@ export const Done: React.FC = () => {
 
   const handleRestart = () => {
     resetSurvey();
+    scrollToTopInstant();
     navigate('/');
   };
 

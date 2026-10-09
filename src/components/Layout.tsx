@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { scrollToTopInstant } from '../utils/scroll';
 
 export interface LayoutProps {
   children: React.ReactNode;
@@ -24,6 +25,7 @@ export const Layout: React.FC<LayoutProps> = ({
             {/* Logo */}
             <Link
               to="/"
+              onClick={() => scrollToTopInstant()}
               className="flex items-center gap-2 group transition-opacity hover:opacity-85"
             >
               <div className="w-6 h-6 rounded-lg bg-lavender flex items-center justify-center text-charcoal font-black text-xs">

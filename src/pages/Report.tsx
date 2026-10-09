@@ -8,6 +8,7 @@ import { Character } from '../components/Character';
 import { useSurvey } from '../store';
 import { generateRecommendations } from '../lib/recommend';
 import { STRESS_CAUSES, RELIEF_METHODS } from '../data/options';
+import { scrollToTopInstant } from '../utils/scroll';
 
 export const Report: React.FC = () => {
   const navigate = useNavigate();
@@ -225,7 +226,10 @@ export const Report: React.FC = () => {
           <Button
             size="lg"
             fullWidth
-            onClick={() => navigate('/survey/contact')}
+            onClick={() => {
+              scrollToTopInstant();
+              navigate('/survey/contact');
+            }}
             rightIcon={ArrowRight}
             className="shadow-cta"
           >

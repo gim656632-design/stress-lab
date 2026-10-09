@@ -7,6 +7,7 @@ import { Button } from '../components/Button';
 import { Character } from '../components/Character';
 import { MBTI_DIMENSIONS } from '../data/options';
 import { useSurvey } from '../store';
+import { scrollToTopInstant } from '../utils/scroll';
 
 export const Mbti: React.FC = () => {
   const navigate = useNavigate();
@@ -110,7 +111,10 @@ export const Mbti: React.FC = () => {
         <div className="pt-8 pb-2 flex items-center justify-between gap-4 mt-auto">
           <Button
             variant="secondary"
-            onClick={() => navigate('/')}
+            onClick={() => {
+              scrollToTopInstant();
+              navigate('/');
+            }}
             leftIcon={ArrowLeft}
             className="px-5"
           >
@@ -119,7 +123,10 @@ export const Mbti: React.FC = () => {
 
           <Button
             variant="primary"
-            onClick={() => navigate('/survey/causes')}
+            onClick={() => {
+              scrollToTopInstant();
+              navigate('/survey/causes');
+            }}
             rightIcon={ArrowRight}
             disabled={!canProceed}
             className="flex-1 max-w-[240px] shadow-cta"

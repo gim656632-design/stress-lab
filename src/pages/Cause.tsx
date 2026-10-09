@@ -8,6 +8,7 @@ import { SelectCard } from '../components/SelectCard';
 import { Character } from '../components/Character';
 import { STRESS_CAUSES } from '../data/options';
 import { useSurvey } from '../store';
+import { scrollToTopInstant } from '../utils/scroll';
 
 export const Cause: React.FC = () => {
   const navigate = useNavigate();
@@ -78,7 +79,10 @@ export const Cause: React.FC = () => {
         <div className="pt-6 pb-2 flex items-center justify-between gap-4 mt-auto">
           <Button
             variant="secondary"
-            onClick={() => navigate('/survey/mbti')}
+            onClick={() => {
+              scrollToTopInstant();
+              navigate('/survey/mbti');
+            }}
             leftIcon={ArrowLeft}
             className="px-5"
           >
@@ -87,7 +91,10 @@ export const Cause: React.FC = () => {
 
           <Button
             variant="primary"
-            onClick={() => navigate('/survey/relief')}
+            onClick={() => {
+              scrollToTopInstant();
+              navigate('/survey/relief');
+            }}
             rightIcon={ArrowRight}
             disabled={!canProceed}
             className="flex-1 max-w-[240px] shadow-cta"
